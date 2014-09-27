@@ -11,7 +11,7 @@ include_recipe 'selenium-grid::bats-handler'
 include_recipe 'java'
 include_recipe 'supervisor'
 include_recipe 'google-chrome'
-node.override['selenium-grid']['grid']['hub']['url'] = '192.168.10.10'
+node.override['selenium-grid']['grid']['hub']['url'] = '10.1.1.69'
 
 #
 # Install packages
