@@ -11,7 +11,7 @@ These tools needs to be installed in your machine.
 ## How to use
 
 - Clone this repository and do `vagrant up <vm-name>` from inside the repo cloned.
-- Run selenium test with selenium hub url as `http://10.1.1.69:4444/wd/hub`
+- Run selenium test with selenium hub url as `http://macpro-b8944d:4444/wd/hub`
 
 ## Hub + node
 To bring up hub + node vm `vagrant up selenium-grid`
