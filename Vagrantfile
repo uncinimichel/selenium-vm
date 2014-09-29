@@ -34,6 +34,7 @@ Vagrant::configure("2") do |config|
     grid_node.vm.provision :chef_solo do |chef_solo|
       chef_solo.cookbooks_path = chef_solo_cookbook_path
       chef_solo.add_recipe 'selenium-grid::node'
+      chef_solo.add_recipe 'chef-timezone::default'
     end
   end
 
@@ -53,8 +54,9 @@ Vagrant::configure("2") do |config|
     grid_node.vm.provision :shell, :inline => CHEF_CLIENT_INSTALL
 
     grid_node.vm.provision :chef_solo do |chef_solo|
-        chef_solo.cookbooks_path = chef_solo_cookbook_path
-        chef_solo.add_recipe 'selenium-grid::node'
+      chef_solo.cookbooks_path = chef_solo_cookbook_path
+      chef_solo.add_recipe 'selenium-grid::node'
+      chef_solo.add_recipe 'chef-timezone::default'
     end
   end
 
@@ -76,6 +78,7 @@ Vagrant::configure("2") do |config|
     grid_node.vm.provision :chef_solo do |chef_solo|
       chef_solo.cookbooks_path = chef_solo_cookbook_path
       chef_solo.add_recipe 'selenium-grid::node'
+      chef_solo.add_recipe 'chef-timezone::default'
     end
   end
 
@@ -97,6 +100,7 @@ Vagrant::configure("2") do |config|
     grid_node.vm.provision :chef_solo do |chef_solo|
       chef_solo.cookbooks_path = chef_solo_cookbook_path
       chef_solo.add_recipe 'selenium-grid::node'
+      chef_solo.add_recipe 'chef-timezone::default'
     end
   end
 end
