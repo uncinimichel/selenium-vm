@@ -103,4 +103,136 @@ Vagrant::configure("2") do |config|
       chef_solo.add_recipe 'chef-timezone::default'
     end
   end
+
+    # Configure Selenium Node
+  config.vm.define :'node5' do |grid_node|
+    grid_node.vm.network :private_network, ip: "10.1.1.7"
+    grid_node.vm.network "forwarded_port", guest: 3389, host: 3395 # RPD port
+    grid_node.vm.hostname = "node.selenium.vm"
+    grid_node.vm.provider :virtualbox do |vb|
+      vb.customize [
+                    "modifyvm", :id,
+                    "--name", "node4",
+                    "--memory", "512",
+                    "--cpus", 1,
+                   ]
+    end
+    grid_node.vm.provision :shell, :inline => CHEF_CLIENT_INSTALL
+
+    grid_node.vm.provision :chef_solo do |chef_solo|
+      chef_solo.cookbooks_path = chef_solo_cookbook_path
+      chef_solo.add_recipe 'selenium-grid::node'
+      chef_solo.add_recipe 'chef-timezone::default'
+    end
+  end
+
+    # Configure Selenium Node
+  config.vm.define :'node6' do |grid_node|
+    grid_node.vm.network :private_network, ip: "10.1.1.8"
+    grid_node.vm.network "forwarded_port", guest: 3389, host: 3396 # RPD port
+    grid_node.vm.hostname = "node.selenium.vm"
+    grid_node.vm.provider :virtualbox do |vb|
+      vb.customize [
+                    "modifyvm", :id,
+                    "--name", "node4",
+                    "--memory", "512",
+                    "--cpus", 1,
+                   ]
+    end
+    grid_node.vm.provision :shell, :inline => CHEF_CLIENT_INSTALL
+
+    grid_node.vm.provision :chef_solo do |chef_solo|
+      chef_solo.cookbooks_path = chef_solo_cookbook_path
+      chef_solo.add_recipe 'selenium-grid::node'
+      chef_solo.add_recipe 'chef-timezone::default'
+    end
+  end
+
+    # Configure Selenium Node
+  config.vm.define :'node7' do |grid_node|
+    grid_node.vm.network :private_network, ip: "10.1.1.9"
+    grid_node.vm.network "forwarded_port", guest: 3389, host: 3397 # RPD port
+    grid_node.vm.hostname = "node.selenium.vm"
+    grid_node.vm.provider :virtualbox do |vb|
+      vb.customize [
+                    "modifyvm", :id,
+                    "--name", "node4",
+                    "--memory", "512",
+                    "--cpus", 1,
+                   ]
+    end
+    grid_node.vm.provision :shell, :inline => CHEF_CLIENT_INSTALL
+
+    grid_node.vm.provision :chef_solo do |chef_solo|
+      chef_solo.cookbooks_path = chef_solo_cookbook_path
+      chef_solo.add_recipe 'selenium-grid::node'
+      chef_solo.add_recipe 'chef-timezone::default'
+    end
+  end
+
+    # Configure Selenium Node
+  config.vm.define :'node8' do |grid_node|
+    grid_node.vm.network :private_network, ip: "10.1.1.10"
+    grid_node.vm.network "forwarded_port", guest: 3389, host: 3398 # RPD port
+    grid_node.vm.hostname = "node.selenium.vm"
+    grid_node.vm.provider :virtualbox do |vb|
+      vb.customize [
+                    "modifyvm", :id,
+                    "--name", "node4",
+                    "--memory", "512",
+                    "--cpus", 1,
+                   ]
+    end
+    grid_node.vm.provision :shell, :inline => CHEF_CLIENT_INSTALL
+
+    grid_node.vm.provision :chef_solo do |chef_solo|
+      chef_solo.cookbooks_path = chef_solo_cookbook_path
+      chef_solo.add_recipe 'selenium-grid::node'
+      chef_solo.add_recipe 'chef-timezone::default'
+    end
+  end
+
+    # Configure Selenium Node
+  config.vm.define :'node9' do |grid_node|
+    grid_node.vm.network :private_network, ip: "10.1.1.11"
+    grid_node.vm.network "forwarded_port", guest: 3389, host: 3399 # RPD port
+    grid_node.vm.hostname = "node.selenium.vm"
+    grid_node.vm.provider :virtualbox do |vb|
+      vb.customize [
+                    "modifyvm", :id,
+                    "--name", "node4",
+                    "--memory", "512",
+                    "--cpus", 1,
+                   ]
+    end
+    grid_node.vm.provision :shell, :inline => CHEF_CLIENT_INSTALL
+
+    grid_node.vm.provision :chef_solo do |chef_solo|
+      chef_solo.cookbooks_path = chef_solo_cookbook_path
+      chef_solo.add_recipe 'selenium-grid::node'
+      chef_solo.add_recipe 'chef-timezone::default'
+    end
+  end
+
+    # Configure Selenium Node
+  config.vm.define :'node10' do |grid_node|
+    grid_node.vm.network :private_network, ip: "10.1.1.11"
+    grid_node.vm.network "forwarded_port", guest: 3389, host: 3400 # RPD port
+    grid_node.vm.hostname = "node.selenium.vm"
+    grid_node.vm.provider :virtualbox do |vb|
+      vb.customize [
+                    "modifyvm", :id,
+                    "--name", "node4",
+                    "--memory", "512",
+                    "--cpus", 1,
+                   ]
+    end
+    grid_node.vm.provision :shell, :inline => CHEF_CLIENT_INSTALL
+
+    grid_node.vm.provision :chef_solo do |chef_solo|
+      chef_solo.cookbooks_path = chef_solo_cookbook_path
+      chef_solo.add_recipe 'selenium-grid::node'
+      chef_solo.add_recipe 'chef-timezone::default'
+    end
+  end
 end
