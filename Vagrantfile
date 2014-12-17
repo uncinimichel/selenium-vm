@@ -15,6 +15,7 @@ EOF
 Vagrant::configure("2") do |config|
   config.vm.box = "Ubuntu Precise 32"
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
+  config.omnibus.chef_version = '11.16.4'
 
   nodes = [
     {

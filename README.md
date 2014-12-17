@@ -1,6 +1,11 @@
 selenium-vm
 ===========
 
+## Pre-requisite
+
+Run: 
+`vagrant plugin install vagrant-omnibus`
+
 This repo containing `Vagrantfile` which has `selenium-grid` vm in it.
 
 ## Requirements
