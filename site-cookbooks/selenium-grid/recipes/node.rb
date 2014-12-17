@@ -61,13 +61,20 @@ end
 #
 # config
 #
+
+begin
+  selenium_port = File.open('/.selenium-port') {|io| io.read}
+rescue
+  selenium_port = 5555
+end
 template "#{node['selenium']['dir']}/#{node['selenium']['config']}.json" do
   source "#{node['selenium']['config']}.erb"
   owner 'root'
   variables({
     :hub_url => node['grid']['hub']['url'],
-    :node_url => node['grid']['node']['url']
-    })
+    :node_url => node['grid']['node']['url'],
+    :port => selenium_port
+  })
 end
 
 
@@ -98,3 +105,4 @@ supervisor_service 'node' do
       -Dwebdriver.chrome.driver=#{node['selenium']['dir']}/#{node['chromedriver']['exe']}
     }.join(' ')
 end
+
