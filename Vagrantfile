@@ -60,7 +60,7 @@ Vagrant::configure("2") do |config|
       :name => 'node7'
     },
     {
-      :private_ip => '10.1.1.9',
+      :private_ip => '10.1.1.10',
       :rdp_port => 3398,
       :selenium_port => 6008,
       :name => 'node8'
