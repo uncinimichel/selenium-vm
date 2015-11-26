@@ -11,7 +11,6 @@ include_recipe 'selenium-grid::bats-handler'
 include_recipe 'java'
 include_recipe 'supervisor'
 include_recipe 'google-chrome'
-node.override['selenium-grid']['grid']['hub']['url'] = 'macpro-b8944d'
 
 #
 # Install packages
@@ -67,12 +66,25 @@ begin
 rescue
   selenium_port = 5555
 end
+
+begin
+  hub_url = File.open('/.hub-url') {|io| io.read}
+rescue
+  hub_url = node['grid']['hub']['url']
+end
+
+begin
+  node_url = File.open('/.node-url') {|io| io.read}
+rescue
+  node_url = node['grid']['node']['url']
+end
+
 template "#{node['selenium']['dir']}/#{node['selenium']['config']}.json" do
   source "#{node['selenium']['config']}.erb"
   owner 'root'
   variables({
-    :hub_url => node['grid']['hub']['url'],
-    :node_url => node['grid']['node']['url'],
+    :hub_url => hub_url,
+    :node_url => node_url,
     :port => selenium_port
   })
 end

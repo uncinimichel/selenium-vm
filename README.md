@@ -19,6 +19,7 @@ These tools needs to be installed in your machine.
 - Run selenium test with selenium hub url as `http://macpro-b8944d:4444/wd/hub`
 
 ## Hub + node
+Set up selenium hub url `export SELENIUM_HUB_URL=192.X.X.X`
 To bring up hub + node vm `vagrant up selenium-grid`
 
 ## Add more nodes

@@ -83,6 +83,8 @@ Vagrant::configure("2") do |config|
                      ]
       end
       grid_node.vm.provision "shell", inline: "echo '#{node[:selenium_port]}' > /.selenium-port"
+      grid_node.vm.provision "shell", inline: "echo ${SELENIUM_HUB_URL} > /.hub-url"
+      grid_node.vm.provision "shell", inline: "echo '${SELENIUM_NODE_URL}' > /.node-url"
       grid_node.vm.provision :shell, :inline => CHEF_CLIENT_INSTALL
 
       grid_node.vm.provision :chef_solo do |chef_solo|
